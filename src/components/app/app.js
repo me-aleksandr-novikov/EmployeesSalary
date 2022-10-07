@@ -46,12 +46,29 @@ class App extends Component {
     }
 
     onToggleIncrease = (id) => {
-        this.setState(({data}) => {
-            const index = data.findIndex(elem => elem.id === id);
+        // this.setState(({data}) => {
+        //     // const index = data.findIndex(elem => elem.id === id);
 
-            const old = data[index];
-            const newItem = {...old, increase: !old.increase}; //сформирует новый объект //свойства добавленные после заменят существующие/добавятся если новые 
-        })
+        //     // const old = data[index];
+        //     // const newItem = {...old, increase: !old.increase}; //сформирует новый объект //свойства добавленные после заменят существующие/добавятся если новые 
+        //     // const newArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)];
+
+        //     // return {
+        //     //     data: newArr
+        //     // }
+
+
+        // }) 1й метод
+
+        this.setState(({data}) =>({
+            data: data.map(item => {
+                if(item.id === id) {
+                    return {...item, increase: !item.increase}
+                }
+                return item;
+            })
+        }))
+        
     }
 
     onToggleRise = (id) => {
