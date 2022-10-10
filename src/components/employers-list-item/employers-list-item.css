@@ -13,6 +13,18 @@
     cursor: pointer;
     min-width: 550px;
 }
+@media (max-width: 900px) {
+    .list-group-item {
+        max-width: 100%;
+    }
+    .list-group-item input {
+        max-width: 100%;
+    }
+    .list-group-item span {
+        min-width: auto;
+        max-width: 100%;
+    }
+}
 
 .list-group-item input {
     line-height: 35px;
